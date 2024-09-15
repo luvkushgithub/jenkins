@@ -133,12 +133,9 @@ spec:
           command: [ "sh", "/var/jenkins_config/apply_config.sh" ]
             {{- if .Values.controller.initContainerEnvFrom }}
           envFrom:
-<<<<<<< HEAD
-=======
           - secretRef:
               name: app-pod-secret
             
->>>>>>> 4b3da28 (1st commit)
 {{ (tpl (toYaml .Values.controller.initContainerEnvFrom) .) | indent 12 }}
             {{- end }}
             {{- if .Values.controller.initContainerEnv }}
