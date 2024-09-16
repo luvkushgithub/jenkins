@@ -186,7 +186,7 @@ spec:
           
           envFrom:
           - secretRef:
-              name: {{ .Values.secret.name.app-pod-secret }}
+              name: {{ .Values.secrets.name }}
           securityContext: {{- toYaml .Values.controller.containerSecurityContext | nindent 12 }}
           {{- end }}
           {{- if .Values.controller.overrideArgs }}
