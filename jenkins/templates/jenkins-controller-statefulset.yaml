@@ -134,7 +134,7 @@ spec:
             {{- if .Values.controller.initContainerEnvFrom }}
           envFrom:
           - secretRef:
-              name: app-pod-secret
+              name: {{ .Values.controller.dbUserNameKeyRef }}
             
 {{ (tpl (toYaml .Values.controller.initContainerEnvFrom) .) | indent 12 }}
             {{- end }}

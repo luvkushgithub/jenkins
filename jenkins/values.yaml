@@ -1,3 +1,7 @@
+secrets: 
+  db-username: app-pod-secret
+
+
 # Default values for jenkins.
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
@@ -42,6 +46,7 @@ controller:
     # -- Controller image pull secret
     imagePullSecretName: null
     # -- Lifecycle specification for controller-container
+    dbUserNameKeyRef: app-pod-secret
     lifecycle: {}
     #  postStart:
     #    exec:
