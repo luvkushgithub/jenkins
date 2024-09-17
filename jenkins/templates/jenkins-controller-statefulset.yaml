@@ -183,10 +183,9 @@ spec:
           image: "{{ .Values.controller.image.registry }}/{{ .Values.controller.image.repository }}:{{- include "controller.image.tag" . -}}"
           imagePullPolicy: "{{ .Values.controller.image.pullPolicy }}"
           {{- if .Values.controller.containerSecurityContext }}
-          
           envFrom:
           - secretRef:
-              name: {{ - if .Values.secrets.name }}
+              name: "{{- if .Values.secrets.db-username}}"
           securityContext: {{- toYaml .Values.controller.containerSecurityContext | nindent 12 }}
           {{- end }}
           {{- if .Values.controller.overrideArgs }}
